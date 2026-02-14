@@ -13,20 +13,22 @@ const ProjectCard = ({ project, index }) => {
       className="group"
     >
       <Link to={`/project/${project.id}`} className="block">
-        <div className="bg-bg-card rounded-xl overflow-hidden shadow-soft hover:shadow-hover transition-all duration-300 h-full flex flex-col">
-          {/* Thumbnail placeholder */}
-          <div className="h-48 bg-gradient-to-br from-accent-subtle to-accent-primary/20 flex items-center justify-center">
-            <div className="text-4xl font-heading text-accent-primary">
-              {project.title.charAt(0)}
+        <div className="bg-white overflow-hidden border border-gray-200 hover:shadow-lg transition-all duration-300 h-full flex flex-col border-b-4 border-b-accent">
+          {/* Thumbnail placeholder with 4:3 aspect ratio */}
+          <div className="relative w-full" style={{ paddingBottom: '75%' }}>
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+              <div className="text-4xl font-bold text-gray-400">
+                {project.title.charAt(0)}
+              </div>
             </div>
           </div>
 
           <div className="p-6 flex flex-col flex-grow">
-            <h3 className="text-2xl font-heading font-semibold text-text-primary mb-3 group-hover:text-accent-primary transition-colors">
+            <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-accent transition-colors">
               {project.title}
             </h3>
 
-            <p className="text-text-secondary mb-4 flex-grow line-clamp-2">
+            <p className="text-foreground/70 mb-4 flex-grow text-sm">
               {project.description}
             </p>
 
@@ -39,7 +41,7 @@ const ProjectCard = ({ project, index }) => {
               )}
             </div>
 
-            <div className="flex items-center text-accent-primary font-medium">
+            <div className="flex items-center text-accent font-medium text-sm">
               <span className="mr-2">View Project</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>

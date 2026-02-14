@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
 
 const Button = ({ children, variant = 'primary', href, onClick, className = '', ...props }) => {
-  const baseStyles = 'inline-block px-8 py-3 rounded-lg font-medium transition-all duration-300';
+  const baseStyles = 'inline-block px-8 py-3 font-medium transition-all duration-300';
 
   const variants = {
-    primary: 'bg-accent-primary text-white hover:bg-accent-hover shadow-soft hover:shadow-hover',
-    secondary: 'border-2 border-accent-primary text-accent-primary hover:bg-accent-subtle',
-    ghost: 'text-text-primary hover:text-accent-primary',
+    primary: 'bg-accent text-white hover:bg-accent/90 shadow-sm hover:shadow-md',
+    secondary: 'border-2 border-accent text-accent hover:bg-accent hover:text-white',
+    ghost: 'text-foreground hover:text-accent',
   };
 
   const Component = href ? 'a' : motion.button;

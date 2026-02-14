@@ -35,6 +35,7 @@ const Contact = () => {
       id="contact"
       title="Let's Connect"
       subtitle="I'm always open to discussing new opportunities, interesting projects, or just chatting about tech"
+      className="bg-white"
     >
       <motion.div
         className="max-w-2xl mx-auto"
@@ -52,19 +53,19 @@ const Contact = () => {
                 href={link.href}
                 target={link.href.startsWith('http') ? '_blank' : undefined}
                 rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="flex items-center gap-4 p-6 bg-bg-card rounded-xl shadow-soft hover:shadow-hover transition-all duration-300 group"
+                className="flex items-center gap-4 p-6 bg-white border border-gray-200 hover:border-accent hover:shadow-md transition-all duration-300 group"
                 whileHover={{ scale: 1.02, y: -4 }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className="p-3 bg-accent-subtle rounded-lg group-hover:bg-accent-primary transition-colors">
-                  <Icon className="w-6 h-6 text-accent-primary group-hover:text-white transition-colors" />
+                <div className="p-3 bg-accent/10 group-hover:bg-accent transition-colors">
+                  <Icon className="w-6 h-6 text-accent group-hover:text-white transition-colors" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-text-primary mb-1">{link.name}</h3>
-                  <p className="text-sm text-text-secondary">{link.label}</p>
+                  <h3 className="font-semibold text-foreground mb-1">{link.name}</h3>
+                  <p className="text-sm text-foreground/70">{link.label}</p>
                 </div>
               </motion.a>
             );

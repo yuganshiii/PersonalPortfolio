@@ -17,12 +17,12 @@ const ProjectDetail = () => {
 
   if (!project) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center bg-white">
         <div className="text-center">
-          <h1 className="text-4xl font-heading font-bold text-text-primary mb-4">
+          <h1 className="text-4xl font-bold text-foreground mb-4">
             Project Not Found
           </h1>
-          <Link to="/" className="text-accent-primary hover:text-accent-hover">
+          <Link to="/" className="text-accent hover:text-accent/80">
             ← Back to Home
           </Link>
         </div>
@@ -35,7 +35,7 @@ const ProjectDetail = () => {
   const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
 
   return (
-    <div className="min-h-screen pt-24 pb-16">
+    <div className="min-h-screen pt-24 pb-16 bg-white">
       <div className="container-width max-w-4xl">
         {/* Back button */}
         <motion.div
@@ -46,7 +46,7 @@ const ProjectDetail = () => {
         >
           <button
             onClick={() => navigate('/')}
-            className="flex items-center gap-2 text-text-secondary hover:text-accent-primary transition-colors"
+            className="flex items-center gap-2 text-foreground/70 hover:text-accent transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
             <span>Back to Projects</span>
@@ -60,7 +60,7 @@ const ProjectDetail = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="mb-12"
         >
-          <h1 className="text-4xl md:text-5xl font-heading font-bold text-text-primary mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             {project.title}
           </h1>
           <div className="flex flex-wrap gap-2 mb-6">
@@ -77,8 +77,8 @@ const ProjectDetail = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mb-12"
         >
-          <div className="h-64 md:h-96 bg-gradient-to-br from-accent-subtle to-accent-primary/20 rounded-xl flex items-center justify-center">
-            <div className="text-6xl font-heading text-accent-primary">
+          <div className="h-64 md:h-96 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center border-b-4 border-accent">
+            <div className="text-6xl font-bold text-gray-400">
               {project.title.charAt(0)}
             </div>
           </div>
@@ -91,10 +91,10 @@ const ProjectDetail = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="mb-12"
         >
-          <h2 className="text-3xl font-heading font-bold text-text-primary mb-4">
+          <h2 className="text-2xl font-bold text-foreground mb-4 pb-2 border-b-2 border-accent">
             The Problem
           </h2>
-          <div className="text-text-secondary leading-relaxed whitespace-pre-line">
+          <div className="text-foreground/80 leading-relaxed whitespace-pre-line">
             {project.problem}
           </div>
         </motion.section>
@@ -106,10 +106,10 @@ const ProjectDetail = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="mb-12"
         >
-          <h2 className="text-3xl font-heading font-bold text-text-primary mb-4">
+          <h2 className="text-2xl font-bold text-foreground mb-4 pb-2 border-b-2 border-accent">
             The Approach
           </h2>
-          <div className="text-text-secondary leading-relaxed whitespace-pre-line">
+          <div className="text-foreground/80 leading-relaxed whitespace-pre-line">
             {project.approach}
           </div>
         </motion.section>
@@ -121,10 +121,10 @@ const ProjectDetail = () => {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="mb-12"
         >
-          <h2 className="text-3xl font-heading font-bold text-text-primary mb-4">
+          <h2 className="text-2xl font-bold text-foreground mb-4 pb-2 border-b-2 border-accent">
             Results & Impact
           </h2>
-          <div className="text-text-secondary leading-relaxed whitespace-pre-line">
+          <div className="text-foreground/80 leading-relaxed whitespace-pre-line">
             {project.results}
           </div>
         </motion.section>
@@ -164,12 +164,12 @@ const ProjectDetail = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.7 }}
-          className="flex justify-between items-center pt-12 border-t border-border-light"
+          className="flex justify-between items-center pt-12 border-t border-gray-200"
         >
           {prevProject ? (
             <Link
               to={`/project/${prevProject.id}`}
-              className="flex items-center gap-2 text-text-secondary hover:text-accent-primary transition-colors group"
+              className="flex items-center gap-2 text-foreground/70 hover:text-accent transition-colors group"
             >
               <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
               <div className="text-left">
@@ -184,7 +184,7 @@ const ProjectDetail = () => {
           {nextProject ? (
             <Link
               to={`/project/${nextProject.id}`}
-              className="flex items-center gap-2 text-text-secondary hover:text-accent-primary transition-colors group"
+              className="flex items-center gap-2 text-foreground/70 hover:text-accent transition-colors group"
             >
               <div className="text-right">
                 <div className="text-xs">Next</div>

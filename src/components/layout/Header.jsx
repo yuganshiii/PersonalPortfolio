@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 
 const Header = () => {
-  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 100);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -21,55 +22,87 @@ const Header = () => {
   };
 
   return (
-    <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-bg-card shadow-soft backdrop-blur-sm bg-opacity-95' : 'bg-transparent'
-      }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <nav className="container-width py-4">
-        <div className="flex justify-between items-center">
-          <Link to="/" className="font-heading text-2xl font-semibold text-text-primary hover:text-accent-primary transition-colors">
+    <>
+      <header className={`${isHomePage ? 'bg-white' : 'bg-primary'} py-6 px-8`}>
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <button
+            onClick={() => window.location.href = '/PersonalPortfolio/'}
+            className="text-2xl font-medium hover:opacity-70 transition-opacity"
+          >
             YA
-          </Link>
+          </button>
 
-          <div className="hidden md:flex items-center gap-8">
+          <nav className="flex gap-12">
             <button
               onClick={() => scrollToSection('projects')}
-              className="text-text-secondary hover:text-accent-primary transition-colors"
+              className="text-lg hover:opacity-70 transition-opacity"
             >
               Projects
             </button>
             <button
               onClick={() => scrollToSection('journey')}
-              className="text-text-secondary hover:text-accent-primary transition-colors"
+              className="text-lg hover:opacity-70 transition-opacity"
             >
               Journey
             </button>
             <button
-              onClick={() => scrollToSection('skills')}
-              className="text-text-secondary hover:text-accent-primary transition-colors"
-            >
-              Skills
-            </button>
-            <button
               onClick={() => scrollToSection('about')}
-              className="text-text-secondary hover:text-accent-primary transition-colors"
+              className="text-lg hover:opacity-70 transition-opacity"
             >
               About
             </button>
             <button
               onClick={() => scrollToSection('contact')}
-              className="text-text-secondary hover:text-accent-primary transition-colors"
+              className="text-lg hover:opacity-70 transition-opacity"
             >
               Contact
             </button>
-          </div>
+          </nav>
         </div>
-      </nav>
-    </motion.header>
+      </header>
+
+      {/* Sticky scroll header */}
+      <div
+        className={`fixed top-0 left-0 right-0 bg-primary py-4 px-8 shadow-md z-50 transition-transform duration-300 ${
+          isScrolled ? 'translate-y-0' : '-translate-y-full'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <button
+            onClick={() => window.location.href = '/PersonalPortfolio/'}
+            className="text-xl font-medium hover:opacity-70 transition-opacity"
+          >
+            Yuganshi Agrawal
+          </button>
+          <nav className="flex gap-12">
+            <button
+              onClick={() => scrollToSection('projects')}
+              className="text-lg hover:opacity-70 transition-opacity"
+            >
+              Projects
+            </button>
+            <button
+              onClick={() => scrollToSection('journey')}
+              className="text-lg hover:opacity-70 transition-opacity"
+            >
+              Journey
+            </button>
+            <button
+              onClick={() => scrollToSection('about')}
+              className="text-lg hover:opacity-70 transition-opacity"
+            >
+              About
+            </button>
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="text-lg hover:opacity-70 transition-opacity"
+            >
+              Contact
+            </button>
+          </nav>
+        </div>
+      </div>
+    </>
   );
 };
 

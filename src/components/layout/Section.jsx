@@ -20,11 +20,11 @@ const Section = ({ id, title, subtitle, children, className = '', noPadding = fa
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-text-primary mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               {title}
             </h2>
             {subtitle && (
-              <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+              <p className="text-base text-foreground/70 max-w-2xl mx-auto">
                 {subtitle}
               </p>
             )}

@@ -8,7 +8,7 @@ const Timeline = () => {
       id="journey"
       title="Journey"
       subtitle="My educational and professional path in data science and software engineering"
-      className="bg-bg-secondary"
+      className="bg-gray-50"
     >
       <div className="max-w-4xl mx-auto relative pt-8">
         {timeline.map((item, index) => (

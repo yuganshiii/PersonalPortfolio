@@ -14,21 +14,21 @@ const TimelineItem = ({ item, index }) => {
     >
       {/* Timeline line and dot */}
       <div className="absolute left-1/2 transform -translate-x-1/2 flex flex-col items-center">
-        <div className="w-4 h-4 bg-accent-primary rounded-full border-4 border-bg-primary z-10"></div>
-        {index !== 4 && <div className="w-0.5 h-full bg-accent-subtle mt-2"></div>}
+        <div className="w-4 h-4 bg-accent rounded-full border-4 border-white z-10"></div>
+        {index !== 4 && <div className="w-0.5 h-full bg-gray-300 mt-2"></div>}
       </div>
 
       {/* Content */}
       <div className={`w-full md:w-5/12 ${isEven ? 'md:pr-12 md:text-right' : 'md:pl-12 md:ml-auto'}`}>
-        <div className="bg-bg-card p-6 rounded-xl shadow-soft hover:shadow-hover transition-all duration-300">
-          <span className="text-sm font-mono text-accent-primary">{item.year}</span>
-          <h3 className="text-xl font-heading font-semibold text-text-primary mt-2 mb-1">
+        <div className="bg-white p-6 border border-gray-200 shadow-sm hover:shadow-md hover:border-accent transition-all duration-300">
+          <span className="text-sm font-medium text-accent">{item.year}</span>
+          <h3 className="text-xl font-semibold text-foreground mt-2 mb-1">
             {item.title}
           </h3>
-          <p className="text-md font-medium text-text-secondary mb-3">
+          <p className="text-md font-medium text-foreground/70 mb-3">
             {item.organization} · {item.location}
           </p>
-          <p className="text-text-secondary mb-4 text-sm leading-relaxed">
+          <p className="text-foreground/60 mb-4 text-sm leading-relaxed">
             {item.description}
           </p>
           <div className={`flex flex-wrap gap-2 ${isEven ? 'md:justify-end' : ''}`}>

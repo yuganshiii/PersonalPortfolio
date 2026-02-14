@@ -9,16 +9,16 @@ const SkillCategory = ({ title, items, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
-      className="bg-bg-card p-6 rounded-xl shadow-soft"
+      className="bg-white p-6 border border-gray-200 shadow-sm"
     >
-      <h3 className="text-xl font-heading font-semibold text-text-primary mb-4">
+      <h3 className="text-lg font-semibold text-foreground mb-4 pb-2 border-b-2 border-accent">
         {title}
       </h3>
       <div className="flex flex-wrap gap-2">
         {items.map((skill) => (
           <span
             key={skill}
-            className="px-3 py-1.5 bg-accent-subtle text-text-primary text-sm rounded-md hover:bg-accent-primary hover:text-white transition-colors duration-300 cursor-default"
+            className="px-3 py-1.5 bg-gray-100 text-foreground text-sm hover:bg-accent hover:text-white transition-colors duration-300 cursor-default"
           >
             {skill}
           </span>
@@ -43,6 +43,7 @@ const Skills = () => {
       id="skills"
       title="Skills & Technologies"
       subtitle="A comprehensive toolkit for data science, machine learning, and software development"
+      className="bg-white"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {categories.map((category, index) => (

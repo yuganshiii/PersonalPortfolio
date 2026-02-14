@@ -25,6 +25,7 @@ const ProjectGallery = () => {
       id="projects"
       title="Projects"
       subtitle="A selection of my work in machine learning, data science, and software engineering"
+      className="bg-white"
     >
       <FilterTabs
         filters={filters}
