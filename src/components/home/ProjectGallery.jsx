@@ -13,6 +13,17 @@ const filters = [
   { label: 'Software', value: 'swe' },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
+    }
+  }
+};
+
 const ProjectGallery = () => {
   const [activeFilter, setActiveFilter] = useState('all');
 
@@ -35,9 +46,12 @@ const ProjectGallery = () => {
 
       <motion.div
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
         layout
       >
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="popLayout">
           {filteredProjects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
@@ -46,9 +60,10 @@ const ProjectGallery = () => {
 
       {filteredProjects.length === 0 && (
         <motion.p
-          className="text-center text-text-secondary mt-12"
+          className="text-center text-foreground/70 mt-12"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
         >
           No projects found in this category.
         </motion.p>
