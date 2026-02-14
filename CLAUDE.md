@@ -6,16 +6,38 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Current Status
 
-This is a **planning document** for a personal portfolio website. The actual codebase has not been created yet. Once the project is initialized with React + Vite, this section will be updated with development commands.
+✅ **Portfolio website is fully implemented and deployed!**
 
-## Development Commands (To be added after project setup)
+Live Site: https://yuganshiii.github.io/PersonalPortfolio/
 
-Once the project is initialized, these commands will be available:
-- `npm install` - Install dependencies
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run deploy` - Deploy to GitHub Pages
+The portfolio showcases:
+- 4 ML/AI and Data Science projects with detailed case studies
+- Interactive timeline of education and experience
+- Comprehensive skills section
+- Professional about section
+- Contact information with social links
+
+## Development Commands
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server (runs on http://localhost:5173)
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build locally
+npm run preview
+
+# Deploy to GitHub Pages
+npm run deploy
+
+# Lint code
+npm run lint
+```
 
 ---
 
