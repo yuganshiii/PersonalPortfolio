@@ -23,7 +23,7 @@ const Header = () => {
 
   return (
     <>
-      <header className={`${isHomePage ? 'bg-white' : 'bg-primary'} py-6 px-8`}>
+      <header className="bg-primary py-6 px-8">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <button
             onClick={() => window.location.href = '/PersonalPortfolio/'}
@@ -61,9 +61,9 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Sticky scroll header */}
+      {/* Sticky scroll header - wider/taller */}
       <div
-        className={`fixed top-0 left-0 right-0 bg-primary py-4 px-8 shadow-md z-50 transition-transform duration-300 ${
+        className={`fixed top-0 left-0 right-0 bg-primary py-6 px-8 shadow-md z-50 transition-transform duration-300 ${
           isScrolled ? 'translate-y-0' : '-translate-y-full'
         }`}
       >
